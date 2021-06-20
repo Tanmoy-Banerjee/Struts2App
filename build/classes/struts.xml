@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<constant name="struts.devMode" value="true"></constant>
+<package name = "Authentication" extends="struts-default">
+
+<action name = "signUp" class = "com.Auth.SignUp" method ="execute">
+<result name = "success">/homePage.jsp</result>
+</action>
+
+<action name = "login" class = "com.Auth.Login" method = "execute">
+<result name ="success">/homePage.jsp</result>
+<result name = "failed">/error.jsp</result>
+</action>
+</package>
+
+
+</struts>
