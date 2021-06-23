@@ -22,9 +22,10 @@ public class Login  implements SessionAware {
 		 HttpServletRequest request = ServletActionContext.getRequest();
 		 String username = request.getParameter("username");
 		 String password = request.getParameter("password");
-		 
 		 if(validate(username,password)==true)
+		 {
 		 return "success";
+		 }
 		 else {
 			 return "failed";
 		 }
