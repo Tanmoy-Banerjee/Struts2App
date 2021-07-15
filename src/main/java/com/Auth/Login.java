@@ -19,14 +19,17 @@ public class Login  implements SessionAware {
 	SessionMap<String,String> sessionmap;  
 	public String execute()
 	{
+		 System.out.println("The code reaches here testing");
 		 HttpServletRequest request = ServletActionContext.getRequest();
 		 String username = request.getParameter("username");
 		 String password = request.getParameter("password");
-		 if(validate(username,password)==true)
+	     Login ob = new Login();
+		 if(ob.validate(username,password)==true)
 		 {
 		 return "success";
 		 }
 		 else {
+			 
 			 return "failed";
 		 }
 	}
@@ -37,7 +40,7 @@ public class Login  implements SessionAware {
 	    sessionmap.put("login","true");  
 	}  
 	
-	public static boolean validate(String username,String password) {
+	public  boolean validate(String username,String password) {
 	boolean flag = false;
 	try {
 		
@@ -56,5 +59,10 @@ public class Login  implements SessionAware {
 	}
 	return flag;
 	}
+	
+	public String logout(){  
+	    sessionmap.invalidate();  
+	    return "success";  
+	} 
 	
 }
